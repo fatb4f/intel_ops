@@ -1,0 +1,35 @@
+{
+  "module_id": "patterns.pattern_library.v1",
+  "patterns": [
+    {
+      "pattern_id": "P-001",
+      "label": "coercive_ambiguity",
+      "description": "Mixed messaging used to preserve leverage while avoiding a binary commitment."
+    },
+    {
+      "pattern_id": "P-002",
+      "label": "selective_access_squeeze",
+      "description": "Control shifts to deciding who moves, when, and under what protection."
+    },
+    {
+      "pattern_id": "P-003",
+      "label": "stakeholder_revelation",
+      "description": "Infrastructure pressure forces hidden stakeholders to reveal priorities and dependencies."
+    },
+    {
+      "pattern_id": "P-004",
+      "label": "escort_escalation_trap",
+      "description": "Protective shipping architecture creates clearer targets and a new casus belli loop."
+    },
+    {
+      "pattern_id": "P-005",
+      "label": "proxy_modulation",
+      "description": "Proxy layers are activated selectively rather than released as a single unified bloc."
+    },
+    {
+      "pattern_id": "P-006",
+      "label": "regime_survival_finance",
+      "description": "A sanctioned or pressured state preserves strategic endurance through parallel revenue and logistics rails."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "module_id": "workflows.actor_cluster_scoring_template.v1",
+  "depends_on": [
+    "analysis.information_ops_model.v1",
+    "core.cluster_definitions.v1"
+  ],
+  "score_range": {
+    "min": 0,
+    "max": 3
+  },
+  "fields": [
+    "date",
+    "cluster_id",
+    "actor",
+    "originator",
+    "amplifier",
+    "beneficiary",
+    "capability_precedent",
+    "current_war_evidence",
+    "concealment_cutouts",
+    "strategic_alignment",
+    "total",
+    "provisional_role"
+  ],
+  "seeded_examples": [
+    {
+      "cluster_id": "CL-001",
+      "actor": "Iran-linked networks",
+      "originator": 3,
+      "amplifier": 2,
+      "beneficiary": 3,
+      "capability_precedent": 3,
+      "current_war_evidence": 3,
+      "concealment_cutouts": 2,
+      "strategic_alignment": 3,
+      "total": 19,
+      "provisional_role": "likely originator / beneficiary"
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "module_id": "analysis.steering_events_predictions.v1",
+  "predictions": [
+    {
+      "prediction_id": "SE-001",
+      "label": "hormuz_escort_or_convoy_regime",
+      "linked_patterns": [
+        "P-001",
+        "P-002",
+        "P-004"
+      ],
+      "graph_node_ids": [
+        "G-S4",
+        "G-S5",
+        "G-S6",
+        "G-D4",
+        "G-D5",
+        "G-D6",
+        "G-D7"
+      ],
+      "overlay_ids": [
+        "X-001",
+        "R-001",
+        "R-003",
+        "T-001",
+        "T-002"
+      ],
+      "rationale": "Escort discussion and selective passage make shipping governance itself the key steering asset.",
+      "branches": [
+        {
+          "branch_id": "SE-001-A",
+          "label": "managed_reopening",
+          "graph_node_ids": [
+            "G-D5",
+            "G-D7"
+          ],
+          "overlay_ids": [
+            "R-001",
+            "T-001",
+            "T-002"
+          ]
+        },
+        {
+          "branch_id": "SE-001-B",
+          "label": "escort_clash_escalation",
+          "graph_node_ids": [
+            "G-S4",
+            "G-D4",
+            "G-D6",
+            "G-D7"
+          ],
+          "overlay_ids": [
+            "R-003",
+            "T-003"
+          ]
+        },
+        {
+          "branch_id": "SE-001-C",
+          "label": "selective_access_squeeze",
+          "graph_node_ids": [
+            "G-S6",
+            "G-D4",
+            "G-D5"
+          ],
+          "overlay_ids": [
+            "R-001",
+            "R-002",
+            "T-002"
+          ]
+        }
+      ]
+    },
+    {
+      "prediction_id": "SE-002",
+      "label": "regional_strike_on_energy_port_embassy_nodes",
+      "linked_patterns": [
+        "P-003",
+        "P-005"
+      ],
+      "graph_node_ids": [
+        "G-S3",
+        "G-S4",
+        "G-S5",
+        "G-D3",
+        "G-D5",
+        "G-D7"
+      ],
+      "overlay_ids": [
+        "X-002",
+        "R-002",
+        "T-002",
+        "T-003"
+      ],
+      "rationale": "Regional infrastructure pressure forces latent stakeholders into visible alignment and reveals dependencies.",
+      "branches": [
+        {
+          "branch_id": "SE-002-A",
+          "label": "limited_tit_for_tat",
+          "graph_node_ids": [
+            "G-S3",
+            "G-D5",
+            "G-D7"
+          ],
+          "overlay_ids": [
+            "R-002",
+            "T-002"
+          ]
+        },
+        {
+          "branch_id": "SE-002-B",
+          "label": "major_outage_regionalization",
+          "graph_node_ids": [
+            "G-S4",
+            "G-S5",
+            "G-D7"
+          ],
+          "overlay_ids": [
+            "R-002",
+            "T-003"
+          ]
+        }
+      ]
+    },
+    {
+      "prediction_id": "SE-003",
+      "label": "political_endgame_decision",
+      "linked_patterns": [
+        "P-001",
+        "P-006"
+      ],
+      "graph_node_ids": [
+        "G-S1",
+        "G-S2",
+        "G-D1",
+        "G-D6",
+        "G-D7"
+      ],
+      "overlay_ids": [
+        "X-003",
+        "R-003",
+        "T-003"
+      ],
+      "rationale": "The war may pivot on whether pressure is converted into bargaining or extended attrition.",
+      "branches": [
+        {
+          "branch_id": "SE-003-A",
+          "label": "coercive_bargaining_window",
+          "graph_node_ids": [
+            "G-S1",
+            "G-D6",
+            "G-D7"
+          ],
+          "overlay_ids": [
+            "R-003"
+          ]
+        },
+        {
+          "branch_id": "SE-003-B",
+          "label": "sustained_attritional_expansion",
+          "graph_node_ids": [
+            "G-D1",
+            "G-D3",
+            "G-D7"
+          ],
+          "overlay_ids": [
+            "T-003"
+          ]
+        }
+      ]
+    }
+  ]
+}

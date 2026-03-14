@@ -1,0 +1,157 @@
+{
+  "module_id": "graphs.iran_dual_layer_graph.v1",
+  "nodes": [
+    {
+      "node_id": "G-S1",
+      "layer": "surface",
+      "label": "public_casus_belli_nuclear_missile_proxy_threat"
+    },
+    {
+      "node_id": "G-S2",
+      "layer": "surface",
+      "label": "leadership_targeting_regime_change_rhetoric"
+    },
+    {
+      "node_id": "G-S3",
+      "layer": "surface",
+      "label": "proxy_attacks_iraq_hezbollah_others"
+    },
+    {
+      "node_id": "G-S4",
+      "layer": "surface",
+      "label": "shipping_attacks_hormuz_threat"
+    },
+    {
+      "node_id": "G-S5",
+      "layer": "surface",
+      "label": "economic_shock_oil_insurance_shipping"
+    },
+    {
+      "node_id": "G-S6",
+      "layer": "surface",
+      "label": "contradictory_messaging_close_vs_not_close_hormuz"
+    },
+    {
+      "node_id": "G-D1",
+      "layer": "deep",
+      "label": "regime_survival_finance_illicit_oil_shadow_banking"
+    },
+    {
+      "node_id": "G-D2",
+      "layer": "deep",
+      "label": "intermediary_mesh_front_firms_vessels_brokers_banks"
+    },
+    {
+      "node_id": "G-D3",
+      "layer": "deep",
+      "label": "proxy_modulation_selective_activation"
+    },
+    {
+      "node_id": "G-D4",
+      "layer": "deep",
+      "label": "chokepoint_coercion_hormuz_leverage"
+    },
+    {
+      "node_id": "G-D5",
+      "layer": "deep",
+      "label": "alliance_stress_gulf_states_shipping_protection"
+    },
+    {
+      "node_id": "G-D6",
+      "layer": "deep",
+      "label": "narrative_shaping_ambiguity_deterrence_bargaining"
+    },
+    {
+      "node_id": "G-D7",
+      "layer": "deep",
+      "label": "cost_imposition_insurance_inflation_political_pressure"
+    }
+  ],
+  "edges": [
+    {
+      "source": "G-S1",
+      "target": "G-D6",
+      "type": "supports"
+    },
+    {
+      "source": "G-S2",
+      "target": "G-D6",
+      "type": "supports"
+    },
+    {
+      "source": "G-S2",
+      "target": "G-D3",
+      "type": "triggers"
+    },
+    {
+      "source": "G-S3",
+      "target": "G-D3",
+      "type": "expresses"
+    },
+    {
+      "source": "G-S4",
+      "target": "G-D4",
+      "type": "expresses"
+    },
+    {
+      "source": "G-S4",
+      "target": "G-D5",
+      "type": "pressures"
+    },
+    {
+      "source": "G-S5",
+      "target": "G-D7",
+      "type": "amplifies"
+    },
+    {
+      "source": "G-S6",
+      "target": "G-D6",
+      "type": "signals"
+    },
+    {
+      "source": "G-D1",
+      "target": "G-D2",
+      "type": "depends_on"
+    },
+    {
+      "source": "G-D2",
+      "target": "G-D1",
+      "type": "enables"
+    },
+    {
+      "source": "G-D1",
+      "target": "G-D3",
+      "type": "funds"
+    },
+    {
+      "source": "G-D1",
+      "target": "G-D4",
+      "type": "enables"
+    },
+    {
+      "source": "G-D3",
+      "target": "G-D5",
+      "type": "pressures"
+    },
+    {
+      "source": "G-D4",
+      "target": "G-D5",
+      "type": "pressures"
+    },
+    {
+      "source": "G-D4",
+      "target": "G-D7",
+      "type": "drives"
+    },
+    {
+      "source": "G-D6",
+      "target": "G-D4",
+      "type": "conditions"
+    },
+    {
+      "source": "G-D6",
+      "target": "G-D7",
+      "type": "conditions"
+    }
+  ]
+}

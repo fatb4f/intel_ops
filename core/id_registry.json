@@ -1,0 +1,59 @@
+{
+  "module_id": "core.id_registry.v1",
+  "authoritative_sources": {
+    "clusters": "core/cluster_definitions.json",
+    "overlay_ids": "core/overlay_id_definitions.json",
+    "claims": "core/claim_registry.json",
+    "graph_nodes": "graphs/iran_dual_layer_graph.json",
+    "patterns": "patterns/pattern_library.json"
+  },
+  "stable_id_index": {
+    "clusters": [
+      "CL-001",
+      "CL-002",
+      "CL-003",
+      "CL-004",
+      "CL-005",
+      "CL-006"
+    ],
+    "overlay_ids": [
+      "X-001",
+      "X-002",
+      "X-003",
+      "R-001",
+      "R-002",
+      "R-003",
+      "T-001",
+      "T-002",
+      "T-003"
+    ],
+    "claims": [
+      "IRN-2026-001",
+      "IRN-2026-002",
+      "IRN-2026-003"
+    ],
+    "graph_nodes": [
+      "G-S1",
+      "G-S2",
+      "G-S3",
+      "G-S4",
+      "G-S5",
+      "G-S6",
+      "G-D1",
+      "G-D2",
+      "G-D3",
+      "G-D4",
+      "G-D5",
+      "G-D6",
+      "G-D7"
+    ],
+    "patterns": [
+      "P-001",
+      "P-002",
+      "P-003",
+      "P-004",
+      "P-005",
+      "P-006"
+    ]
+  }
+}

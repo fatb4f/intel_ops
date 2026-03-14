@@ -1,0 +1,24 @@
+{
+  "module_id": "analysis.information_ops_model.v1",
+  "attribution_ladder": [
+    "misinformation_present",
+    "coordinated_influence_likely",
+    "intel_style_campaign_plausible",
+    "strong_attribution_candidate"
+  ],
+  "dimensions": [
+    "artifact_pattern",
+    "coordination_signal",
+    "operator_concealment",
+    "credibility_laundering",
+    "state_linkage",
+    "strategic_alignment",
+    "correction_asymmetry"
+  ],
+  "actor_roles": [
+    "originator",
+    "amplifier",
+    "beneficiary",
+    "capability_holder_with_precedent"
+  ]
+}

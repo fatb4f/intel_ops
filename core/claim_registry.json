@@ -1,0 +1,26 @@
+{
+  "module_id": "core.claim_registry.v1",
+  "claims": [
+    {
+      "claim_id": "IRN-2026-001",
+      "cluster_id": "CL-001",
+      "summary": "AI-generated imagery claimed captured U.S. Delta Force troops in Iran.",
+      "status": "seeded_example",
+      "first_seen_context": "thread-derived"
+    },
+    {
+      "claim_id": "IRN-2026-002",
+      "cluster_id": "CL-001",
+      "summary": "AI-generated viral clip framed as an Iranian missile barrage over Tel Aviv.",
+      "status": "seeded_example",
+      "first_seen_context": "thread-derived"
+    },
+    {
+      "claim_id": "IRN-2026-003",
+      "cluster_id": "CL-002",
+      "summary": "Binary claim that Hormuz is fully closed rather than selectively gated.",
+      "status": "seeded_example",
+      "first_seen_context": "thread-derived"
+    }
+  ]
+}

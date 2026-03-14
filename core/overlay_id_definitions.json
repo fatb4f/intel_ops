@@ -1,0 +1,55 @@
+{
+  "module_id": "core.overlay_id_definitions.v1",
+  "namespaces": {
+    "X": "exploit or steering trigger node",
+    "R": "rent/leverage generated from a trigger",
+    "T": "reallocation target or downstream theatre/asset"
+  },
+  "overlay_ids": [
+    {
+      "id": "X-001",
+      "label": "escort_or_convoy_regime",
+      "kind": "trigger"
+    },
+    {
+      "id": "X-002",
+      "label": "regional_infrastructure_strike_cycle",
+      "kind": "trigger"
+    },
+    {
+      "id": "X-003",
+      "label": "policy_endgame_decision_node",
+      "kind": "trigger"
+    },
+    {
+      "id": "R-001",
+      "label": "security_arbitration_over_shipping",
+      "kind": "rent"
+    },
+    {
+      "id": "R-002",
+      "label": "stakeholder_revelation_and_dependency_exposure",
+      "kind": "rent"
+    },
+    {
+      "id": "R-003",
+      "label": "narrative_reframing_and_escalation_reset",
+      "kind": "rent"
+    },
+    {
+      "id": "T-001",
+      "label": "oil_market_behavior",
+      "kind": "target"
+    },
+    {
+      "id": "T-002",
+      "label": "gulf_alliance_alignment",
+      "kind": "target"
+    },
+    {
+      "id": "T-003",
+      "label": "regionalized_attritional_conflict",
+      "kind": "target"
+    }
+  ]
+}

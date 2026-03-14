@@ -1,0 +1,35 @@
+{
+  "module_id": "core.cluster_definitions.v1",
+  "clusters": [
+    {
+      "cluster_id": "CL-001",
+      "label": "pro_iran_fabricated_battlefield_success",
+      "description": "Fake or manipulated claims depicting decisive Iranian military wins or Western humiliation."
+    },
+    {
+      "cluster_id": "CL-002",
+      "label": "hormuz_binary_closure_panic",
+      "description": "Binary claims that Hormuz is fully closed/open, ignoring selective gating and controlled friction."
+    },
+    {
+      "cluster_id": "CL-003",
+      "label": "regime_collapse_inevitability",
+      "description": "Claims that Tehran is on the verge of immediate internal collapse."
+    },
+    {
+      "cluster_id": "CL-004",
+      "label": "full_axis_activation",
+      "description": "Claims that all aligned proxy actors are fully mobilized and coordinated."
+    },
+    {
+      "cluster_id": "CL-005",
+      "label": "fabricated_atrocity_or_casualty_visuals",
+      "description": "False or unverified atrocity and casualty visuals."
+    },
+    {
+      "cluster_id": "CL-006",
+      "label": "false_diplomatic_breakthrough",
+      "description": "False or premature ceasefire/de-escalation announcements."
+    }
+  ]
+}

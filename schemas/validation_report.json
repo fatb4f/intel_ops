@@ -1,0 +1,213 @@
+{
+  "module_id": "schemas.validation_report.v1",
+  "results": [
+    {
+      "check": "claim IRN-2026-001 cluster exists",
+      "pass": true
+    },
+    {
+      "check": "claim IRN-2026-002 cluster exists",
+      "pass": true
+    },
+    {
+      "check": "claim IRN-2026-003 cluster exists",
+      "pass": true
+    },
+    {
+      "check": "overlay X-001 defined",
+      "pass": true
+    },
+    {
+      "check": "overlay X-001 mapped graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "overlay X-002 defined",
+      "pass": true
+    },
+    {
+      "check": "overlay X-002 mapped graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "overlay X-003 defined",
+      "pass": true
+    },
+    {
+      "check": "overlay X-003 mapped graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "overlay R-001 defined",
+      "pass": true
+    },
+    {
+      "check": "overlay R-001 mapped graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "overlay R-002 defined",
+      "pass": true
+    },
+    {
+      "check": "overlay R-002 mapped graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "overlay R-003 defined",
+      "pass": true
+    },
+    {
+      "check": "overlay R-003 mapped graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "overlay T-001 defined",
+      "pass": true
+    },
+    {
+      "check": "overlay T-001 mapped graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "overlay T-002 defined",
+      "pass": true
+    },
+    {
+      "check": "overlay T-002 mapped graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "overlay T-003 defined",
+      "pass": true
+    },
+    {
+      "check": "overlay T-003 mapped graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "prediction SE-001 patterns exist",
+      "pass": true
+    },
+    {
+      "check": "prediction SE-001 graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "prediction SE-001 overlay ids exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-001-A graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-001-A overlay ids exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-001-B graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-001-B overlay ids exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-001-C graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-001-C overlay ids exist",
+      "pass": true
+    },
+    {
+      "check": "prediction SE-002 patterns exist",
+      "pass": true
+    },
+    {
+      "check": "prediction SE-002 graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "prediction SE-002 overlay ids exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-002-A graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-002-A overlay ids exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-002-B graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-002-B overlay ids exist",
+      "pass": true
+    },
+    {
+      "check": "prediction SE-003 patterns exist",
+      "pass": true
+    },
+    {
+      "check": "prediction SE-003 graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "prediction SE-003 overlay ids exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-003-A graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-003-A overlay ids exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-003-B graph nodes exist",
+      "pass": true
+    },
+    {
+      "check": "prediction branch SE-003-B overlay ids exist",
+      "pass": true
+    },
+    {
+      "check": "workflow seeded claim IRN-2026-001 exists",
+      "pass": true
+    },
+    {
+      "check": "workflow seeded cluster CL-001 exists",
+      "pass": true
+    },
+    {
+      "check": "workflow seeded claim IRN-2026-002 exists",
+      "pass": true
+    },
+    {
+      "check": "workflow seeded cluster CL-001 exists",
+      "pass": true
+    },
+    {
+      "check": "workflow seeded claim IRN-2026-003 exists",
+      "pass": true
+    },
+    {
+      "check": "workflow seeded cluster CL-002 exists",
+      "pass": true
+    },
+    {
+      "check": "actor workflow seeded cluster CL-001 exists",
+      "pass": true
+    }
+  ],
+  "summary": {
+    "all_pass": true,
+    "checks": 51
+  }
+}

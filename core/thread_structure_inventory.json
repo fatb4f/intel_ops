@@ -1,0 +1,48 @@
+{
+  "archive_id": "iran-thread-handoff-v2",
+  "contracts": {
+    "decoupling": [
+      "Graphs store node and edge state only.",
+      "Predictions MUST reference graph nodes by stable node_id.",
+      "Patterns MUST be reusable and independent from any one graph.",
+      "Workflows MUST consume canonical IDs from authoritative registries.",
+      "Dependency maps MUST be machine-enforceable and reflect actual imports/exports."
+    ],
+    "id_policy": [
+      "All stable IDs MUST exist in an authoritative record.",
+      "Narrative clusters are first-class modules, not free-form labels.",
+      "Overlay IDs (X-*, R-*, T-*) are first-class modules, not ad hoc graph strings.",
+      "Seeded claim IDs MUST exist in claim_registry.json before they appear in workflow examples."
+    ]
+  },
+  "module_families": [
+    {
+      "family": "core",
+      "purpose": "authoritative IDs, inventories, registries"
+    },
+    {
+      "family": "patterns",
+      "purpose": "reusable motifs and historical analogues"
+    },
+    {
+      "family": "graphs",
+      "purpose": "current-state graph models and overlays"
+    },
+    {
+      "family": "analysis",
+      "purpose": "predictions and actor/campaign models"
+    },
+    {
+      "family": "workflows",
+      "purpose": "daily scoring sheets and seeded examples"
+    },
+    {
+      "family": "schemas",
+      "purpose": "machine-enforceable module dependencies and contracts"
+    }
+  ],
+  "open_questions_resolved": {
+    "module_map_json": "machine-enforceable",
+    "narrative_clusters": "first-class modules"
+  }
+}

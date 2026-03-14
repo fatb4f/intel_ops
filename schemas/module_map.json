@@ -1,0 +1,173 @@
+{
+  "module_id": "schemas.module_map.v1",
+  "machine_enforceable": true,
+  "modules": [
+    {
+      "module": "core/cluster_definitions.json",
+      "exports": [
+        "cluster_id"
+      ],
+      "imports": []
+    },
+    {
+      "module": "core/overlay_id_definitions.json",
+      "exports": [
+        "overlay_id"
+      ],
+      "imports": []
+    },
+    {
+      "module": "core/claim_registry.json",
+      "exports": [
+        "claim_id"
+      ],
+      "imports": [
+        {
+          "from": "core/cluster_definitions.json",
+          "join": "claims[*].cluster_id = clusters[*].cluster_id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "module": "core/id_registry.json",
+      "exports": [
+        "stable_id_index"
+      ],
+      "imports": [
+        {
+          "from": "core/cluster_definitions.json",
+          "join": "index only",
+          "required": true
+        },
+        {
+          "from": "core/overlay_id_definitions.json",
+          "join": "index only",
+          "required": true
+        },
+        {
+          "from": "core/claim_registry.json",
+          "join": "index only",
+          "required": true
+        },
+        {
+          "from": "graphs/iran_dual_layer_graph.json",
+          "join": "index only",
+          "required": true
+        },
+        {
+          "from": "patterns/pattern_library.json",
+          "join": "index only",
+          "required": true
+        }
+      ]
+    },
+    {
+      "module": "patterns/pattern_library.json",
+      "exports": [
+        "pattern_id"
+      ],
+      "imports": []
+    },
+    {
+      "module": "graphs/iran_dual_layer_graph.json",
+      "exports": [
+        "node_id",
+        "edge"
+      ],
+      "imports": []
+    },
+    {
+      "module": "graphs/iran_exploit_chain_overlay.json",
+      "exports": [
+        "overlay_node",
+        "overlay_edge"
+      ],
+      "imports": [
+        {
+          "from": "core/overlay_id_definitions.json",
+          "join": "overlay_nodes[*].id = overlay_ids[*].id",
+          "required": true
+        },
+        {
+          "from": "graphs/iran_dual_layer_graph.json",
+          "join": "overlay_nodes[*].mapped_graph_nodes[*] = nodes[*].node_id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "module": "analysis/steering_events_predictions.json",
+      "exports": [
+        "prediction_id"
+      ],
+      "imports": [
+        {
+          "from": "patterns/pattern_library.json",
+          "join": "predictions[*].linked_patterns[*] = patterns[*].pattern_id",
+          "required": true
+        },
+        {
+          "from": "graphs/iran_dual_layer_graph.json",
+          "join": "predictions[*].graph_node_ids[*] = nodes[*].node_id",
+          "required": true
+        },
+        {
+          "from": "graphs/iran_exploit_chain_overlay.json",
+          "join": "predictions[*].overlay_ids[*] = overlay_nodes[*].id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "module": "analysis/information_ops_model.json",
+      "exports": [
+        "attribution_ladder",
+        "dimensions",
+        "actor_roles"
+      ],
+      "imports": []
+    },
+    {
+      "module": "workflows/claim_scoring_template.json",
+      "exports": [
+        "seeded_examples"
+      ],
+      "imports": [
+        {
+          "from": "analysis/information_ops_model.json",
+          "join": "workflow semantics",
+          "required": true
+        },
+        {
+          "from": "core/cluster_definitions.json",
+          "join": "seeded_examples[*].cluster_id = clusters[*].cluster_id",
+          "required": true
+        },
+        {
+          "from": "core/claim_registry.json",
+          "join": "seeded_examples[*].claim_id = claims[*].claim_id",
+          "required": true
+        }
+      ]
+    },
+    {
+      "module": "workflows/actor_cluster_scoring_template.json",
+      "exports": [
+        "seeded_examples"
+      ],
+      "imports": [
+        {
+          "from": "analysis/information_ops_model.json",
+          "join": "workflow semantics",
+          "required": true
+        },
+        {
+          "from": "core/cluster_definitions.json",
+          "join": "seeded_examples[*].cluster_id = clusters[*].cluster_id",
+          "required": true
+        }
+      ]
+    }
+  ]
+}

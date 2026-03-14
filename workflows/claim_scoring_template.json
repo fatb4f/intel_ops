@@ -1,0 +1,51 @@
+{
+  "module_id": "workflows.claim_scoring_template.v1",
+  "depends_on": [
+    "analysis.information_ops_model.v1",
+    "core.cluster_definitions.v1",
+    "core.claim_registry.v1"
+  ],
+  "score_range": {
+    "min": 0,
+    "max": 2
+  },
+  "fields": [
+    "claim_id",
+    "cluster_id",
+    "artifact_type",
+    "source_diversity",
+    "visual_provenance",
+    "coordination_signal",
+    "operator_concealment",
+    "credibility_laundering",
+    "state_linkage",
+    "strategic_alignment",
+    "correction_asymmetry",
+    "hard_logistics_conflict",
+    "total_score",
+    "judgment"
+  ],
+  "seeded_examples": [
+    {
+      "claim_id": "IRN-2026-001",
+      "cluster_id": "CL-001",
+      "artifact_type": "image",
+      "total_score": 11,
+      "judgment": "intel_style_plausible"
+    },
+    {
+      "claim_id": "IRN-2026-002",
+      "cluster_id": "CL-001",
+      "artifact_type": "video",
+      "total_score": 10,
+      "judgment": "intel_style_plausible"
+    },
+    {
+      "claim_id": "IRN-2026-003",
+      "cluster_id": "CL-002",
+      "artifact_type": "text",
+      "total_score": 8,
+      "judgment": "coordinated_influence_likely"
+    }
+  ]
+}

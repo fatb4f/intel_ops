@@ -1,0 +1,72 @@
+{
+  "archive_id": "iran-thread-handoff-v2",
+  "generated_at": "2026-03-14T18:41:27+00:00",
+  "purpose": "machine-joinable modular handoff for the Iran thread",
+  "version": 2,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "e0adf75fe82dde65ed2136136db67d0018c1ddcec7eb501ed0b9080a2f2ec328"
+    },
+    {
+      "path": "analysis/information_ops_model.json",
+      "sha256": "672e9eb16783319489bf6ab48e154c2ccb0e8483a64616375c732250c6525e70"
+    },
+    {
+      "path": "analysis/steering_events_predictions.json",
+      "sha256": "fcfaaf4854c5a2e41728a8cabcbb2679fc883e2b91d497742e8dee55edde6ea5"
+    },
+    {
+      "path": "core/claim_registry.json",
+      "sha256": "8439de842db070476220fbbd43b40e060e90a1e8c7307d84d38018901854121a"
+    },
+    {
+      "path": "core/cluster_definitions.json",
+      "sha256": "74c06b20f79ad3e471ee2641362309d333ce25f307ab9777aca1b871b4fc80a0"
+    },
+    {
+      "path": "core/id_registry.json",
+      "sha256": "8bb612699c29e610ee9d7b05693cb2f5b1dcdc30e7b7bb817cf537bfba1378e5"
+    },
+    {
+      "path": "core/overlay_id_definitions.json",
+      "sha256": "f018a63663e973bceb27e3fd130d430389bc349bffb07b41a1456dc277feee61"
+    },
+    {
+      "path": "core/thread_structure_inventory.json",
+      "sha256": "2115131c1ddbbd47d136a56291de3dcfe5acc6967e1cdff06d9db4174042ff38"
+    },
+    {
+      "path": "graphs/iran_dual_layer_graph.json",
+      "sha256": "5251c66bbfd1b67f4c652700b990800476eade9f3dc1fc6e363a8862af13a3ba"
+    },
+    {
+      "path": "graphs/iran_exploit_chain_overlay.json",
+      "sha256": "3b9c81ff481712df181cef0791fca70829dec613fe34c2354bf33e9df0b3b48b"
+    },
+    {
+      "path": "manifest.json",
+      "sha256": "3ae803ca289cdbb4eb379343f93dbe131f035f66f0cf60239776ffe803294c5b"
+    },
+    {
+      "path": "patterns/pattern_library.json",
+      "sha256": "defe9ade190191bc41bfaef98fb9ed780e78810cf28d9d7e506fc78b96e89620"
+    },
+    {
+      "path": "schemas/module_map.json",
+      "sha256": "fd1df09733ef179462309f375e9e2a5433617058ec33957df54a8dcd07c64603"
+    },
+    {
+      "path": "schemas/validation_report.json",
+      "sha256": "69088d4e2a3386257ba9484d866cb3da7064080f503c97df9b1803fba4936c81"
+    },
+    {
+      "path": "workflows/actor_cluster_scoring_template.json",
+      "sha256": "4ee75775b8c979f55c902c803dae41dfeb7b968a752623d1189508e43755d843"
+    },
+    {
+      "path": "workflows/claim_scoring_template.json",
+      "sha256": "e48c2864b1c1bd4c527c4627c7e177dd006a42eb8294e59a3a38e415171aa720"
+    }
+  ]
+}
