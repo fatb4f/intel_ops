@@ -1,12 +1,17 @@
 {
   "archive_id": "iran-thread-handoff-v2",
-  "generated_at": "2026-03-14T18:41:27+00:00",
+  "generated_at": "2026-03-15T00:00:00-04:00",
   "purpose": "machine-joinable modular handoff for the Iran thread",
   "version": 2,
+  "integrity_model": {
+    "hash_algorithm": "sha256",
+    "manifest_self_hash": false,
+    "notes": "This manifest is detached from its own file hash so the listed archive entries are stable."
+  },
   "files": [
     {
       "path": "README.md",
-      "sha256": "e0adf75fe82dde65ed2136136db67d0018c1ddcec7eb501ed0b9080a2f2ec328"
+      "sha256": "59891b83c8da68b0b9310690ddee6b5924ef674c2d378b0a309637f3cd589b91"
     },
     {
       "path": "analysis/information_ops_model.json",
@@ -37,6 +42,18 @@
       "sha256": "2115131c1ddbbd47d136a56291de3dcfe5acc6967e1cdff06d9db4174042ff38"
     },
     {
+      "path": "docs/archive/layered_stack.dtaft.md",
+      "sha256": "f1c3fc14f463cf10e14b4ec8f6fc4edb6e7ab858bdae6c014bc480dce567e764"
+    },
+    {
+      "path": "docs/archive/stack.draft.md",
+      "sha256": "3d8a6073af81f4b17248efa97ac8641eacbe080dfa739dd9e72c264f2f8ed9c0"
+    },
+    {
+      "path": "docs/layered_stack.md",
+      "sha256": "30b7979a36aceb2e3ca4e9b17c07d5d7faae77d07373348c07cb08dd9a9109da"
+    },
+    {
       "path": "graphs/iran_dual_layer_graph.json",
       "sha256": "5251c66bbfd1b67f4c652700b990800476eade9f3dc1fc6e363a8862af13a3ba"
     },
@@ -45,20 +62,16 @@
       "sha256": "3b9c81ff481712df181cef0791fca70829dec613fe34c2354bf33e9df0b3b48b"
     },
     {
-      "path": "manifest.json",
-      "sha256": "3ae803ca289cdbb4eb379343f93dbe131f035f66f0cf60239776ffe803294c5b"
-    },
-    {
       "path": "patterns/pattern_library.json",
       "sha256": "defe9ade190191bc41bfaef98fb9ed780e78810cf28d9d7e506fc78b96e89620"
     },
     {
       "path": "schemas/module_map.json",
-      "sha256": "fd1df09733ef179462309f375e9e2a5433617058ec33957df54a8dcd07c64603"
+      "sha256": "fb2392106ce067a7f4c4ffa4c6098187813eb5c6833bf9370c196d9ddbe0f450"
     },
     {
       "path": "schemas/validation_report.json",
-      "sha256": "69088d4e2a3386257ba9484d866cb3da7064080f503c97df9b1803fba4936c81"
+      "sha256": "7244b9bf72d9e183de8469b1d676ef9f8ddbd2a4ab5d1549f7d6f9b2a83807db"
     },
     {
       "path": "workflows/actor_cluster_scoring_template.json",

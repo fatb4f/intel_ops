@@ -3,7 +3,7 @@
 **Document role:** Current-state + target-state transition note  
 **Authority level:** Explanatory, not normative  
 **Canonical file:** `docs/layered_stack.md`  
-**Last reviewed against implementation:** `2026-03-14`, packet snapshot `b8a4264`
+**Last reviewed against implementation:** `2026-03-15`, packet snapshot `contract-hardening`
 
 ## Status Boundary
 
@@ -30,8 +30,8 @@ The packet now implements the following control-critical contracts:
 - narrative clusters are first-class modules in `core/cluster_definitions.json`
 - overlay IDs are first-class modules in `core/overlay_id_definitions.json`
 - seeded claims are authoritative in `core/claim_registry.json`
-- `schemas/module_map.json` defines explicit imports/exports
-- `schemas/validation_report.json` records join checks across the packet
+- `schemas/module_map.json` defines typed JSON-LD imports/exports
+- `schemas/validation_report.json` records dependency, registry, and edge-integrity checks across the packet
 
 ## Current Layer Map
 
@@ -106,7 +106,7 @@ What is implemented:
 
 - claim scoring joins to canonical `claim_id`
 - both workflows join to canonical `cluster_id`
-- workflows reference the information-operations model semantically
+- workflows reference the information-operations model by explicit module dependency
 
 What is only partial:
 
@@ -120,8 +120,8 @@ What is only partial:
 
 The packet includes:
 
-- a machine-enforceable dependency map
-- a validation report with passing join checks across the current packet
+- a machine-enforceable JSON-LD dependency map
+- a validation report with passing dependency, registry, and edge-integrity checks across the current packet
 
 Primary files:
 
@@ -136,7 +136,7 @@ Primary files:
 | Overlay ID registry | Implemented | Canonical `X-*`, `R-*`, `T-*` records exist |
 | Claim registry | Implemented | Seeded workflow claim IDs are authoritative |
 | Graph-to-prediction joins | Implemented | Predictions now reference `graph_node_ids` and `overlay_ids` |
-| Module dependency map | Implemented | Present and validated, though some workflow joins remain semantic |
+| Module dependency map | Implemented | Present as a typed JSON-LD contract with explicit dependency kinds |
 | Claim scoring workflow | Implemented | Canonical claim and cluster joins are present |
 | Actor scoring workflow | Partial | Uses `cluster_id`, but actor identity is still free-form |
 | Stable actor registry | Planned | Not present in the live packet |
@@ -149,10 +149,6 @@ Primary files:
 ### Actor identity is not normalized yet
 
 The current packet does **not** implement an authoritative actor registry or stable actor IDs. Actor workflow inputs remain free-form labels. Canonical actor normalization is a planned hardening step, not a present invariant.
-
-### Workflow joins are not uniformly mechanical
-
-`schemas/module_map.json` is materially improved, but some workflow dependencies are still described semantically rather than through strict field-to-field equality joins.
 
 ### Schema hardening is incomplete
 

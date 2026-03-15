@@ -1,213 +1,491 @@
 {
-  "module_id": "schemas.validation_report.v1",
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://intel-ops.local/vocab#",
+    "dependency_id": "https://schema.org/identifier",
+    "dependency_kind": {
+      "@id": "https://intel-ops.local/vocab#dependencyKind",
+      "@type": "@vocab"
+    },
+    "check_kind": {
+      "@id": "https://intel-ops.local/vocab#checkKind",
+      "@type": "@vocab"
+    },
+    "source_module": {
+      "@id": "https://intel-ops.local/vocab#sourceModule",
+      "@type": "@id"
+    },
+    "target_module": {
+      "@id": "https://intel-ops.local/vocab#targetModule",
+      "@type": "@id"
+    },
+    "operator": "https://intel-ops.local/vocab#operator"
+  },
+  "@id": "urn:intel-ops:schemas:validation-report:v2",
+  "@type": "ValidationReport",
+  "module_id": "schemas.validation_report.v2",
+  "contract_source": "schemas/module_map.json",
   "results": [
     {
-      "check": "claim IRN-2026-001 cluster exists",
+      "check_id": "claim_registry.cluster_membership",
+      "dependency_id": "claim_registry.cluster_membership",
+      "check": "core/claim_registry.json claims[*].cluster_id subset core/cluster_definitions.json clusters[*].cluster_id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "field_membership",
+      "source_module": "core/claim_registry.json",
+      "target_module": "core/cluster_definitions.json",
+      "operator": "subset",
+      "checked_values": 3,
       "pass": true
     },
     {
-      "check": "claim IRN-2026-002 cluster exists",
+      "check_id": "id_registry.clusters_set",
+      "dependency_id": "id_registry.clusters_set",
+      "check": "core/id_registry.json stable_id_index.clusters[*] set-equals core/cluster_definitions.json clusters[*].cluster_id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "set_equality",
+      "source_module": "core/id_registry.json",
+      "target_module": "core/cluster_definitions.json",
+      "operator": "set_equals",
+      "checked_values": 6,
       "pass": true
     },
     {
-      "check": "claim IRN-2026-003 cluster exists",
+      "check_id": "id_registry.overlay_ids_set",
+      "dependency_id": "id_registry.overlay_ids_set",
+      "check": "core/id_registry.json stable_id_index.overlay_ids[*] set-equals core/overlay_id_definitions.json overlay_ids[*].id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "set_equality",
+      "source_module": "core/id_registry.json",
+      "target_module": "core/overlay_id_definitions.json",
+      "operator": "set_equals",
+      "checked_values": 9,
       "pass": true
     },
     {
-      "check": "overlay X-001 defined",
+      "check_id": "id_registry.claims_set",
+      "dependency_id": "id_registry.claims_set",
+      "check": "core/id_registry.json stable_id_index.claims[*] set-equals core/claim_registry.json claims[*].claim_id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "set_equality",
+      "source_module": "core/id_registry.json",
+      "target_module": "core/claim_registry.json",
+      "operator": "set_equals",
+      "checked_values": 3,
       "pass": true
     },
     {
-      "check": "overlay X-001 mapped graph nodes exist",
+      "check_id": "id_registry.graph_nodes_set",
+      "dependency_id": "id_registry.graph_nodes_set",
+      "check": "core/id_registry.json stable_id_index.graph_nodes[*] set-equals graphs/iran_dual_layer_graph.json nodes[*].node_id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "set_equality",
+      "source_module": "core/id_registry.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "set_equals",
+      "checked_values": 13,
       "pass": true
     },
     {
-      "check": "overlay X-002 defined",
+      "check_id": "id_registry.patterns_set",
+      "dependency_id": "id_registry.patterns_set",
+      "check": "core/id_registry.json stable_id_index.patterns[*] set-equals patterns/pattern_library.json patterns[*].pattern_id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "set_equality",
+      "source_module": "core/id_registry.json",
+      "target_module": "patterns/pattern_library.json",
+      "operator": "set_equals",
+      "checked_values": 6,
       "pass": true
     },
     {
-      "check": "overlay X-002 mapped graph nodes exist",
+      "check_id": "overlay.overlay_node_ids",
+      "dependency_id": "overlay.overlay_node_ids",
+      "check": "graphs/iran_exploit_chain_overlay.json overlay_nodes[*].id subset core/overlay_id_definitions.json overlay_ids[*].id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "field_membership",
+      "source_module": "graphs/iran_exploit_chain_overlay.json",
+      "target_module": "core/overlay_id_definitions.json",
+      "operator": "subset",
+      "checked_values": 9,
       "pass": true
     },
     {
-      "check": "overlay X-003 defined",
+      "check_id": "overlay.mapped_graph_nodes",
+      "dependency_id": "overlay.mapped_graph_nodes",
+      "check": "graphs/iran_exploit_chain_overlay.json overlay_nodes[*].mapped_graph_nodes[*] subset graphs/iran_dual_layer_graph.json nodes[*].node_id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "field_membership",
+      "source_module": "graphs/iran_exploit_chain_overlay.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "subset",
+      "checked_values": 23,
       "pass": true
     },
     {
-      "check": "overlay X-003 mapped graph nodes exist",
+      "check_id": "graph.edge.G-S1.to.G-D6",
+      "check": "graphs/iran_dual_layer_graph.json edge G-S1 -> G-D6 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "overlay R-001 defined",
+      "check_id": "graph.edge.G-S2.to.G-D6",
+      "check": "graphs/iran_dual_layer_graph.json edge G-S2 -> G-D6 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "overlay R-001 mapped graph nodes exist",
+      "check_id": "graph.edge.G-S2.to.G-D3",
+      "check": "graphs/iran_dual_layer_graph.json edge G-S2 -> G-D3 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "overlay R-002 defined",
+      "check_id": "graph.edge.G-S3.to.G-D3",
+      "check": "graphs/iran_dual_layer_graph.json edge G-S3 -> G-D3 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "overlay R-002 mapped graph nodes exist",
+      "check_id": "graph.edge.G-S4.to.G-D4",
+      "check": "graphs/iran_dual_layer_graph.json edge G-S4 -> G-D4 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "overlay R-003 defined",
+      "check_id": "graph.edge.G-S4.to.G-D5",
+      "check": "graphs/iran_dual_layer_graph.json edge G-S4 -> G-D5 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "overlay R-003 mapped graph nodes exist",
+      "check_id": "graph.edge.G-S5.to.G-D7",
+      "check": "graphs/iran_dual_layer_graph.json edge G-S5 -> G-D7 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "overlay T-001 defined",
+      "check_id": "graph.edge.G-S6.to.G-D6",
+      "check": "graphs/iran_dual_layer_graph.json edge G-S6 -> G-D6 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "overlay T-001 mapped graph nodes exist",
+      "check_id": "graph.edge.G-D1.to.G-D2",
+      "check": "graphs/iran_dual_layer_graph.json edge G-D1 -> G-D2 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "overlay T-002 defined",
+      "check_id": "graph.edge.G-D2.to.G-D1",
+      "check": "graphs/iran_dual_layer_graph.json edge G-D2 -> G-D1 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "overlay T-002 mapped graph nodes exist",
+      "check_id": "graph.edge.G-D1.to.G-D3",
+      "check": "graphs/iran_dual_layer_graph.json edge G-D1 -> G-D3 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "overlay T-003 defined",
+      "check_id": "graph.edge.G-D1.to.G-D4",
+      "check": "graphs/iran_dual_layer_graph.json edge G-D1 -> G-D4 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "overlay T-003 mapped graph nodes exist",
+      "check_id": "graph.edge.G-D3.to.G-D5",
+      "check": "graphs/iran_dual_layer_graph.json edge G-D3 -> G-D5 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction SE-001 patterns exist",
+      "check_id": "graph.edge.G-D4.to.G-D5",
+      "check": "graphs/iran_dual_layer_graph.json edge G-D4 -> G-D5 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction SE-001 graph nodes exist",
+      "check_id": "graph.edge.G-D4.to.G-D7",
+      "check": "graphs/iran_dual_layer_graph.json edge G-D4 -> G-D7 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction SE-001 overlay ids exist",
+      "check_id": "graph.edge.G-D6.to.G-D4",
+      "check": "graphs/iran_dual_layer_graph.json edge G-D6 -> G-D4 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction branch SE-001-A graph nodes exist",
+      "check_id": "graph.edge.G-D6.to.G-D7",
+      "check": "graphs/iran_dual_layer_graph.json edge G-D6 -> G-D7 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_dual_layer_graph.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction branch SE-001-A overlay ids exist",
+      "check_id": "overlay.edge.X-001.to.R-001",
+      "check": "graphs/iran_exploit_chain_overlay.json edge X-001 -> R-001 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_exploit_chain_overlay.json",
+      "target_module": "graphs/iran_exploit_chain_overlay.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction branch SE-001-B graph nodes exist",
+      "check_id": "overlay.edge.X-001.to.R-003",
+      "check": "graphs/iran_exploit_chain_overlay.json edge X-001 -> R-003 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_exploit_chain_overlay.json",
+      "target_module": "graphs/iran_exploit_chain_overlay.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction branch SE-001-B overlay ids exist",
+      "check_id": "overlay.edge.R-001.to.T-001",
+      "check": "graphs/iran_exploit_chain_overlay.json edge R-001 -> T-001 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_exploit_chain_overlay.json",
+      "target_module": "graphs/iran_exploit_chain_overlay.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction branch SE-001-C graph nodes exist",
+      "check_id": "overlay.edge.R-001.to.T-002",
+      "check": "graphs/iran_exploit_chain_overlay.json edge R-001 -> T-002 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_exploit_chain_overlay.json",
+      "target_module": "graphs/iran_exploit_chain_overlay.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction branch SE-001-C overlay ids exist",
+      "check_id": "overlay.edge.X-002.to.R-002",
+      "check": "graphs/iran_exploit_chain_overlay.json edge X-002 -> R-002 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_exploit_chain_overlay.json",
+      "target_module": "graphs/iran_exploit_chain_overlay.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction SE-002 patterns exist",
+      "check_id": "overlay.edge.R-002.to.T-002",
+      "check": "graphs/iran_exploit_chain_overlay.json edge R-002 -> T-002 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_exploit_chain_overlay.json",
+      "target_module": "graphs/iran_exploit_chain_overlay.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction SE-002 graph nodes exist",
+      "check_id": "overlay.edge.R-002.to.T-003",
+      "check": "graphs/iran_exploit_chain_overlay.json edge R-002 -> T-003 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_exploit_chain_overlay.json",
+      "target_module": "graphs/iran_exploit_chain_overlay.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction SE-002 overlay ids exist",
+      "check_id": "overlay.edge.X-003.to.R-003",
+      "check": "graphs/iran_exploit_chain_overlay.json edge X-003 -> R-003 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_exploit_chain_overlay.json",
+      "target_module": "graphs/iran_exploit_chain_overlay.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction branch SE-002-A graph nodes exist",
+      "check_id": "overlay.edge.R-003.to.T-003",
+      "check": "graphs/iran_exploit_chain_overlay.json edge R-003 -> T-003 endpoints exist",
+      "check_kind": "edge_endpoint_check",
+      "source_module": "graphs/iran_exploit_chain_overlay.json",
+      "target_module": "graphs/iran_exploit_chain_overlay.json",
+      "operator": "edge_endpoints_exist",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction branch SE-002-A overlay ids exist",
+      "check_id": "predictions.linked_patterns",
+      "dependency_id": "predictions.linked_patterns",
+      "check": "analysis/steering_events_predictions.json predictions[*].linked_patterns[*] subset patterns/pattern_library.json patterns[*].pattern_id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "field_membership",
+      "source_module": "analysis/steering_events_predictions.json",
+      "target_module": "patterns/pattern_library.json",
+      "operator": "subset",
+      "checked_values": 7,
       "pass": true
     },
     {
-      "check": "prediction branch SE-002-B graph nodes exist",
+      "check_id": "predictions.graph_node_ids",
+      "dependency_id": "predictions.graph_node_ids",
+      "check": "analysis/steering_events_predictions.json predictions[*].graph_node_ids[*] and branches[*].graph_node_ids[*] subset graphs/iran_dual_layer_graph.json nodes[*].node_id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "field_membership",
+      "source_module": "analysis/steering_events_predictions.json",
+      "target_module": "graphs/iran_dual_layer_graph.json",
+      "operator": "subset",
+      "checked_values": 39,
       "pass": true
     },
     {
-      "check": "prediction branch SE-002-B overlay ids exist",
+      "check_id": "predictions.overlay_ids",
+      "dependency_id": "predictions.overlay_ids",
+      "check": "analysis/steering_events_predictions.json predictions[*].overlay_ids[*] and branches[*].overlay_ids[*] subset graphs/iran_exploit_chain_overlay.json overlay_nodes[*].id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "field_membership",
+      "source_module": "analysis/steering_events_predictions.json",
+      "target_module": "graphs/iran_exploit_chain_overlay.json",
+      "operator": "subset",
+      "checked_values": 26,
       "pass": true
     },
     {
-      "check": "prediction SE-003 patterns exist",
+      "check_id": "claim_scoring.depends_on_info_ops_model",
+      "dependency_id": "claim_scoring.depends_on_info_ops_model",
+      "check": "workflows/claim_scoring_template.json depends_on[*] contains analysis.information_ops_model.v1",
+      "check_kind": "dependency_check",
+      "dependency_kind": "module_reference",
+      "source_module": "workflows/claim_scoring_template.json",
+      "target_module": "analysis/information_ops_model.json",
+      "operator": "contains",
+      "checked_values": 3,
       "pass": true
     },
     {
-      "check": "prediction SE-003 graph nodes exist",
+      "check_id": "claim_scoring.cluster_membership",
+      "dependency_id": "claim_scoring.cluster_membership",
+      "check": "workflows/claim_scoring_template.json seeded_examples[*].cluster_id subset core/cluster_definitions.json clusters[*].cluster_id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "field_membership",
+      "source_module": "workflows/claim_scoring_template.json",
+      "target_module": "core/cluster_definitions.json",
+      "operator": "subset",
+      "checked_values": 3,
       "pass": true
     },
     {
-      "check": "prediction SE-003 overlay ids exist",
+      "check_id": "claim_scoring.claim_membership",
+      "dependency_id": "claim_scoring.claim_membership",
+      "check": "workflows/claim_scoring_template.json seeded_examples[*].claim_id subset core/claim_registry.json claims[*].claim_id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "field_membership",
+      "source_module": "workflows/claim_scoring_template.json",
+      "target_module": "core/claim_registry.json",
+      "operator": "subset",
+      "checked_values": 3,
       "pass": true
     },
     {
-      "check": "prediction branch SE-003-A graph nodes exist",
+      "check_id": "actor_scoring.depends_on_info_ops_model",
+      "dependency_id": "actor_scoring.depends_on_info_ops_model",
+      "check": "workflows/actor_cluster_scoring_template.json depends_on[*] contains analysis.information_ops_model.v1",
+      "check_kind": "dependency_check",
+      "dependency_kind": "module_reference",
+      "source_module": "workflows/actor_cluster_scoring_template.json",
+      "target_module": "analysis/information_ops_model.json",
+      "operator": "contains",
+      "checked_values": 2,
       "pass": true
     },
     {
-      "check": "prediction branch SE-003-A overlay ids exist",
-      "pass": true
-    },
-    {
-      "check": "prediction branch SE-003-B graph nodes exist",
-      "pass": true
-    },
-    {
-      "check": "prediction branch SE-003-B overlay ids exist",
-      "pass": true
-    },
-    {
-      "check": "workflow seeded claim IRN-2026-001 exists",
-      "pass": true
-    },
-    {
-      "check": "workflow seeded cluster CL-001 exists",
-      "pass": true
-    },
-    {
-      "check": "workflow seeded claim IRN-2026-002 exists",
-      "pass": true
-    },
-    {
-      "check": "workflow seeded cluster CL-001 exists",
-      "pass": true
-    },
-    {
-      "check": "workflow seeded claim IRN-2026-003 exists",
-      "pass": true
-    },
-    {
-      "check": "workflow seeded cluster CL-002 exists",
-      "pass": true
-    },
-    {
-      "check": "actor workflow seeded cluster CL-001 exists",
+      "check_id": "actor_scoring.cluster_membership",
+      "dependency_id": "actor_scoring.cluster_membership",
+      "check": "workflows/actor_cluster_scoring_template.json seeded_examples[*].cluster_id subset core/cluster_definitions.json clusters[*].cluster_id",
+      "check_kind": "dependency_check",
+      "dependency_kind": "field_membership",
+      "source_module": "workflows/actor_cluster_scoring_template.json",
+      "target_module": "core/cluster_definitions.json",
+      "operator": "subset",
+      "checked_values": 1,
       "pass": true
     }
   ],
+  "coverage": {
+    "declared_imports": 16,
+    "validated_imports": 16,
+    "uncovered_dependency_ids": []
+  },
   "summary": {
     "all_pass": true,
-    "checks": 51
+    "checks": 42
   }
 }

@@ -1,170 +1,340 @@
 {
-  "module_id": "schemas.module_map.v1",
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://intel-ops.local/vocab#",
+    "module": {
+      "@id": "https://intel-ops.local/vocab#module",
+      "@type": "@id"
+    },
+    "from": {
+      "@id": "https://intel-ops.local/vocab#from",
+      "@type": "@id"
+    },
+    "exports": "https://intel-ops.local/vocab#exports",
+    "imports": "https://intel-ops.local/vocab#imports",
+    "path": "https://intel-ops.local/vocab#path",
+    "description": "https://schema.org/description",
+    "dependency_id": "https://schema.org/identifier",
+    "dependency_kind": {
+      "@id": "https://intel-ops.local/vocab#dependencyKind",
+      "@type": "@vocab"
+    },
+    "left_path": "https://intel-ops.local/vocab#leftPath",
+    "right_path": "https://intel-ops.local/vocab#rightPath",
+    "operator": "https://intel-ops.local/vocab#operator",
+    "required": "https://schema.org/required"
+  },
+  "@id": "urn:intel-ops:schemas:module-map:v2",
+  "@type": "ModuleDependencyMap",
+  "module_id": "schemas.module_map.v2",
   "machine_enforceable": true,
+  "contract_model": {
+    "format": "json-ld",
+    "dependency_kinds": [
+      "field_membership",
+      "set_equality",
+      "module_reference"
+    ]
+  },
   "modules": [
     {
+      "@id": "core/cluster_definitions.json",
+      "@type": "Module",
       "module": "core/cluster_definitions.json",
       "exports": [
-        "cluster_id"
+        {
+          "path": "clusters[*].cluster_id",
+          "description": "Canonical cluster identifiers."
+        }
       ],
       "imports": []
     },
     {
+      "@id": "core/overlay_id_definitions.json",
+      "@type": "Module",
       "module": "core/overlay_id_definitions.json",
       "exports": [
-        "overlay_id"
+        {
+          "path": "overlay_ids[*].id",
+          "description": "Canonical overlay identifiers."
+        }
       ],
       "imports": []
     },
     {
+      "@id": "core/claim_registry.json",
+      "@type": "Module",
       "module": "core/claim_registry.json",
       "exports": [
-        "claim_id"
+        {
+          "path": "claims[*].claim_id",
+          "description": "Canonical seeded claim identifiers."
+        }
       ],
       "imports": [
         {
+          "dependency_id": "claim_registry.cluster_membership",
           "from": "core/cluster_definitions.json",
-          "join": "claims[*].cluster_id = clusters[*].cluster_id",
+          "dependency_kind": "field_membership",
+          "left_path": "claims[*].cluster_id",
+          "right_path": "clusters[*].cluster_id",
+          "operator": "subset",
           "required": true
         }
       ]
     },
     {
+      "@id": "core/id_registry.json",
+      "@type": "Module",
       "module": "core/id_registry.json",
       "exports": [
-        "stable_id_index"
+        {
+          "path": "stable_id_index",
+          "description": "Cross-module stable ID index."
+        }
       ],
       "imports": [
         {
+          "dependency_id": "id_registry.clusters_set",
           "from": "core/cluster_definitions.json",
-          "join": "index only",
+          "dependency_kind": "set_equality",
+          "left_path": "stable_id_index.clusters[*]",
+          "right_path": "clusters[*].cluster_id",
+          "operator": "set_equals",
           "required": true
         },
         {
+          "dependency_id": "id_registry.overlay_ids_set",
           "from": "core/overlay_id_definitions.json",
-          "join": "index only",
+          "dependency_kind": "set_equality",
+          "left_path": "stable_id_index.overlay_ids[*]",
+          "right_path": "overlay_ids[*].id",
+          "operator": "set_equals",
           "required": true
         },
         {
+          "dependency_id": "id_registry.claims_set",
           "from": "core/claim_registry.json",
-          "join": "index only",
+          "dependency_kind": "set_equality",
+          "left_path": "stable_id_index.claims[*]",
+          "right_path": "claims[*].claim_id",
+          "operator": "set_equals",
           "required": true
         },
         {
+          "dependency_id": "id_registry.graph_nodes_set",
           "from": "graphs/iran_dual_layer_graph.json",
-          "join": "index only",
+          "dependency_kind": "set_equality",
+          "left_path": "stable_id_index.graph_nodes[*]",
+          "right_path": "nodes[*].node_id",
+          "operator": "set_equals",
           "required": true
         },
         {
+          "dependency_id": "id_registry.patterns_set",
           "from": "patterns/pattern_library.json",
-          "join": "index only",
+          "dependency_kind": "set_equality",
+          "left_path": "stable_id_index.patterns[*]",
+          "right_path": "patterns[*].pattern_id",
+          "operator": "set_equals",
           "required": true
         }
       ]
     },
     {
+      "@id": "patterns/pattern_library.json",
+      "@type": "Module",
       "module": "patterns/pattern_library.json",
       "exports": [
-        "pattern_id"
+        {
+          "path": "patterns[*].pattern_id",
+          "description": "Canonical pattern identifiers."
+        }
       ],
       "imports": []
     },
     {
+      "@id": "graphs/iran_dual_layer_graph.json",
+      "@type": "Module",
       "module": "graphs/iran_dual_layer_graph.json",
       "exports": [
-        "node_id",
-        "edge"
+        {
+          "path": "nodes[*].node_id",
+          "description": "Canonical graph node identifiers."
+        },
+        {
+          "path": "edges[*]",
+          "description": "Directed graph edges between canonical graph nodes."
+        }
       ],
       "imports": []
     },
     {
+      "@id": "graphs/iran_exploit_chain_overlay.json",
+      "@type": "Module",
       "module": "graphs/iran_exploit_chain_overlay.json",
       "exports": [
-        "overlay_node",
-        "overlay_edge"
+        {
+          "path": "overlay_nodes[*].id",
+          "description": "Overlay node identifiers."
+        },
+        {
+          "path": "overlay_edges[*]",
+          "description": "Directed overlay edges between overlay nodes."
+        }
       ],
       "imports": [
         {
+          "dependency_id": "overlay.overlay_node_ids",
           "from": "core/overlay_id_definitions.json",
-          "join": "overlay_nodes[*].id = overlay_ids[*].id",
+          "dependency_kind": "field_membership",
+          "left_path": "overlay_nodes[*].id",
+          "right_path": "overlay_ids[*].id",
+          "operator": "subset",
           "required": true
         },
         {
+          "dependency_id": "overlay.mapped_graph_nodes",
           "from": "graphs/iran_dual_layer_graph.json",
-          "join": "overlay_nodes[*].mapped_graph_nodes[*] = nodes[*].node_id",
+          "dependency_kind": "field_membership",
+          "left_path": "overlay_nodes[*].mapped_graph_nodes[*]",
+          "right_path": "nodes[*].node_id",
+          "operator": "subset",
           "required": true
         }
       ]
     },
     {
+      "@id": "analysis/steering_events_predictions.json",
+      "@type": "Module",
       "module": "analysis/steering_events_predictions.json",
       "exports": [
-        "prediction_id"
+        {
+          "path": "predictions[*].prediction_id",
+          "description": "Prediction identifiers."
+        }
       ],
       "imports": [
         {
+          "dependency_id": "predictions.linked_patterns",
           "from": "patterns/pattern_library.json",
-          "join": "predictions[*].linked_patterns[*] = patterns[*].pattern_id",
+          "dependency_kind": "field_membership",
+          "left_path": "predictions[*].linked_patterns[*]",
+          "right_path": "patterns[*].pattern_id",
+          "operator": "subset",
           "required": true
         },
         {
+          "dependency_id": "predictions.graph_node_ids",
           "from": "graphs/iran_dual_layer_graph.json",
-          "join": "predictions[*].graph_node_ids[*] = nodes[*].node_id",
+          "dependency_kind": "field_membership",
+          "left_path": "predictions[*].graph_node_ids[*] + predictions[*].branches[*].graph_node_ids[*]",
+          "right_path": "nodes[*].node_id",
+          "operator": "subset",
           "required": true
         },
         {
+          "dependency_id": "predictions.overlay_ids",
           "from": "graphs/iran_exploit_chain_overlay.json",
-          "join": "predictions[*].overlay_ids[*] = overlay_nodes[*].id",
+          "dependency_kind": "field_membership",
+          "left_path": "predictions[*].overlay_ids[*] + predictions[*].branches[*].overlay_ids[*]",
+          "right_path": "overlay_nodes[*].id",
+          "operator": "subset",
           "required": true
         }
       ]
     },
     {
+      "@id": "analysis/information_ops_model.json",
+      "@type": "Module",
       "module": "analysis/information_ops_model.json",
       "exports": [
-        "attribution_ladder",
-        "dimensions",
-        "actor_roles"
+        {
+          "path": "attribution_ladder",
+          "description": "Attribution ladder definitions."
+        },
+        {
+          "path": "dimensions",
+          "description": "Scoring dimensions."
+        },
+        {
+          "path": "actor_roles",
+          "description": "Actor role vocabulary."
+        },
+        {
+          "path": "module_id",
+          "description": "Canonical module identifier for workflow dependency checks."
+        }
       ],
       "imports": []
     },
     {
+      "@id": "workflows/claim_scoring_template.json",
+      "@type": "Module",
       "module": "workflows/claim_scoring_template.json",
       "exports": [
-        "seeded_examples"
+        {
+          "path": "seeded_examples[*]",
+          "description": "Seeded claim-scoring examples."
+        }
       ],
       "imports": [
         {
+          "dependency_id": "claim_scoring.depends_on_info_ops_model",
           "from": "analysis/information_ops_model.json",
-          "join": "workflow semantics",
+          "dependency_kind": "module_reference",
+          "left_path": "depends_on[*]",
+          "right_path": "module_id",
+          "operator": "contains",
           "required": true
         },
         {
+          "dependency_id": "claim_scoring.cluster_membership",
           "from": "core/cluster_definitions.json",
-          "join": "seeded_examples[*].cluster_id = clusters[*].cluster_id",
+          "dependency_kind": "field_membership",
+          "left_path": "seeded_examples[*].cluster_id",
+          "right_path": "clusters[*].cluster_id",
+          "operator": "subset",
           "required": true
         },
         {
+          "dependency_id": "claim_scoring.claim_membership",
           "from": "core/claim_registry.json",
-          "join": "seeded_examples[*].claim_id = claims[*].claim_id",
+          "dependency_kind": "field_membership",
+          "left_path": "seeded_examples[*].claim_id",
+          "right_path": "claims[*].claim_id",
+          "operator": "subset",
           "required": true
         }
       ]
     },
     {
+      "@id": "workflows/actor_cluster_scoring_template.json",
+      "@type": "Module",
       "module": "workflows/actor_cluster_scoring_template.json",
       "exports": [
-        "seeded_examples"
+        {
+          "path": "seeded_examples[*]",
+          "description": "Seeded actor-cluster scoring examples."
+        }
       ],
       "imports": [
         {
+          "dependency_id": "actor_scoring.depends_on_info_ops_model",
           "from": "analysis/information_ops_model.json",
-          "join": "workflow semantics",
+          "dependency_kind": "module_reference",
+          "left_path": "depends_on[*]",
+          "right_path": "module_id",
+          "operator": "contains",
           "required": true
         },
         {
+          "dependency_id": "actor_scoring.cluster_membership",
           "from": "core/cluster_definitions.json",
-          "join": "seeded_examples[*].cluster_id = clusters[*].cluster_id",
+          "dependency_kind": "field_membership",
+          "left_path": "seeded_examples[*].cluster_id",
+          "right_path": "clusters[*].cluster_id",
+          "operator": "subset",
           "required": true
         }
       ]

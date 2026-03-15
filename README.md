@@ -8,8 +8,9 @@ This archive is a corrected, machine-joinable rebuild of the prior packet.
 2. Narrative clusters are first-class modules in `core/cluster_definitions.json`.
 3. Overlay IDs (`X-*`, `R-*`, `T-*`) are first-class modules in `core/overlay_id_definitions.json`.
 4. Seeded claim IDs are authoritative in `core/claim_registry.json`.
-5. `schemas/module_map.json` is machine-enforceable and expresses actual imports/exports.
-6. `schemas/validation_report.json` records join checks across modules.
+5. `schemas/module_map.json` is a machine-enforceable JSON-LD dependency contract with typed imports and exact exported paths.
+6. `schemas/validation_report.json` covers dependency checks, registry completeness, and graph and overlay edge endpoint validity.
+7. `manifest.json` uses a detached file list so the archive can validate its contents without self-hash drift.
 
 ## Resolved questions
 
@@ -24,6 +25,7 @@ This archive is a corrected, machine-joinable rebuild of the prior packet.
 - `analysis/` — predictions and information-operations model
 - `workflows/` — claim and actor scoring templates
 - `schemas/` — dependency contract and validation report
+- `docs/` — canonical explanatory stack note and archived drafts
 
 ## Authoritative join rules
 
@@ -35,4 +37,4 @@ This archive is a corrected, machine-joinable rebuild of the prior packet.
 
 ## Validation
 
-`schemas/validation_report.json` currently reports `all_pass = true` across 51 checks.
+`schemas/validation_report.json` currently reports `all_pass = true` across 42 structured checks, with full coverage of the 16 declared imports in `schemas/module_map.json`.
